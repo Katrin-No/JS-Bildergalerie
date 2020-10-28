@@ -1,43 +1,3 @@
-header {
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  max-height: 280px;
-  background-color: #c0dffe;
-}
-
-p {
-  margin: 0.2rem;
-  text-align: center;
-  font-size: 8rem;
-  font-family: 'Pacifico', cursive;
-  letter-spacing: 1.2rem;
-  color: #8d69b5;
-  -webkit-text-stroke: 2px #7527cd;
-}
-
-@media (max-width: 1400px) {
-  p {
-    font-size: 6rem;
-  }
-}
-
-@media (max-width: 1138px) {
-  p {
-    font-size: 4rem;
-    -webkit-text-stroke: 1px #7527cd;
-    letter-spacing: 1rem;
-  }
-}
-
-@media (max-width: 874px) {
-  p {
-    font-size: 2rem;
-    letter-spacing: 0.5rem;
-  }
-}
-
-
 main {
   margin: 2rem;
 }
@@ -129,20 +89,3 @@ main {
 }
 
 /*end of import*/
-
-footer {
-  margin-top: 0.5rem;
-  padding-top: 1.2rem;
-  text-align: center;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 120px;
-  background-color: #c0dffe;
-  list-style-type: none;
-}
-
-li {
-  padding: 0.2rem;
-  font-size: 1.5rem;
-}
