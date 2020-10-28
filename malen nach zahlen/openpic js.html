@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Open picture</title>
+  
+  <link rel="stylesheet" type="text/css" href="openpic js.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+  <!-- Font Awesome https://fontawesome.com/start das ist für close-button--> 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">    
+
+</head>
+
+<header>
+  <p>Malen nach Zahlen</p>
+</header>
+
+<main>
+  <ul class="pictures">
+    <li class="bild" style="background-image: url(3.png);">
+    <li class="bild" style="background-image: url(7.png);">
+    <li class="bild" style="background-image: url(2.png);">
+    <li class="bild" style="background-image: url(6.png);">
+  </ul>
+  <ul class="instruction">
+    <li>Klicke auf das Bild einmal, um es größer zu machen.</li> 
+    <li>Dann noch ein Mal, um nächstes zu sehen.</li> 
+    <li>Man kann auch Tastaturpfeilen und "Esc" benutzen.</li>
+    <li>Um zu schließen, drücke auf das Bild zweimal oder einmal auf das Button oben rechts.</li>
+  </ul>
+</main>
+<footer>
+  <li><a href="karussel.html">Karussel mit JS</a></li>
+  <li><a href="openpic.html">Open pictures with jQ</a></li>
+  <li><a href="openpic js.html">Open pictures with JS</a></li>
+</footer>
+
+<div id="overlay">
+  <img src="3.png" id="bigimage"/>
+  <i id="closeOverlayButton" class="fas fa-times-circle fa-3x"></i>
+</div>
+
+
+<script>
+    
+  var images = new Array();
+  var actualBigImage = 0; 
+  var bigImage = document.querySelector("#bigimage");
+  var overlay = document.querySelector("#overlay");
+
+   var imgNumber = 0;
+   Array.prototype.forEach.call(document.querySelectorAll(".bild"), function( element ) {
+      element.setAttribute("data-number", imgNumber++);
+      var style = window.getComputedStyle(element, false);
+      images.push( style.backgroundImage.slice( 4, -1).replace(/"/g,"") );
+
+      element.addEventListener("click", function(){
+          showOverlay( this );
+      })
+   });
+
+   document.getElementById("closeOverlayButton").addEventListener('click', closeOverlay );
+
+   document.addEventListener('keydown', function(event){
+       switch( event.keyCode ){
+           case 32: case 39: // Leertaste, rechts
+               actualBigImage++;
+           break;
+           case 37: // links
+               actualBigImage--;
+           break;
+           case 27: // ESC
+               closeOverlay();
+               break;
+           default:
+               console.log(  event.keyCode);
+       }
+       
+       if( actualBigImage == images.length ) actualBigImage = 0;
+       if( actualBigImage == -1 ) actualBigImage = images.length - 1;
+
+      showBigImage();
+   });
+
+   bigImage.addEventListener("click", function( event){
+       actualBigImage++;
+      
+       actualBigImage %= images.length;
+       showBigImage();
+   })
+
+   bigImage.addEventListener("dblclick", closeOverlay);
+
+   function showBigImage(){      
+       bigImage.setAttribute("src", images[ actualBigImage ]);
+   }
+
+   function closeOverlay(){
+       overlay.setAttribute("style","display:none;");
+   }
+
+   function showOverlay( element ){
+       actualBigImage = element.dataset.number;
+       bigImage.setAttribute("src", images[ actualBigImage ]);
+       overlay.setAttribute("style","display:block;");
+   }
+   </script>
