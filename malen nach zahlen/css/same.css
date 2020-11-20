@@ -43,7 +43,7 @@ p {
 
 footer {
   margin-top: 0.5rem;
-  padding-top: 1.2rem;
+  /*padding-top: 1.2rem;*/
   text-align: center;
   position: fixed;
   bottom: 0;
@@ -51,6 +51,10 @@ footer {
   height: 120px;
   background-color: #c0dffe;
   list-style-type: none;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 li {
