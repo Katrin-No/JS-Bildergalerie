@@ -1,0 +1,51 @@
+img {
+  width: 100%;
+}
+
+
+.flip-container {
+  perspective: 1000;
+}
+
+.flip-container:hover .flipper,
+.flip-container.hover .flipper {
+  transform: rotateY(180deg);
+}
+
+.flip-container,
+.front,
+.back {
+  width: 500px;
+  height: 500px;
+
+  background-color: blueviolet;
+  color: wheat;
+}
+
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+
+  position: relative;
+}
+
+.front,
+.back {
+  backface-visibility: hidden;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.front {
+  z-index: 2;
+}
+
+.back {
+  transform: rotateY(180deg);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: xx-large;
+}

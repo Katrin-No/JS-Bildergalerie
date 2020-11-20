@@ -2,6 +2,22 @@ main {
   margin: 1rem;
 }
 
+.flex {
+  display: flex;
+}
+
+#second {
+  max-width: 44%;
+  display: block;
+  z-index: 9999;
+  -webkit-transition: all 1s ease-in-out;
+}
+
+#second:hover {
+  -webkit-transform: scale(1.4);
+  /* can add also rotate(360deg)*/
+}
+
 /* karussel */
 .slides {
   display: flex;
@@ -27,6 +43,7 @@ img {
 .btnRight {
   height: 1.1rem;
   margin-left: 2rem;
+  margin-right: 2rem;
   align-self: center;
   padding: 1rem;
   border-radius: 2rem;
