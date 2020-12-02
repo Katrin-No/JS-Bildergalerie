@@ -9,6 +9,9 @@
   <link rel="stylesheet" type="text/css" href="css/flipper.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+  <script src="flipper.js"></script>
 </head>
 
 <header>
@@ -26,6 +29,16 @@
       </div>
     </div>
   </div>
+
+   <!--<button onclick="flip()">flip the card</button>-->
+  <section class="container">
+    <div class="card" onclick="flip()">
+      <div class="front">1</div>
+      <div class="back">2</div>
+    </div>
+  </section>
+
+ 
 </main>
 
 <footer>
@@ -34,3 +47,4 @@
   <li><a href="openpic js.html">Open pictures with JS</a></li>
   <li><a href="flipper.html" class ="current-page">Flipper with CSS</a></li>
 </footer>
+
